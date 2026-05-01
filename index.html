@@ -532,18 +532,26 @@
       .footer-top { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
     }
+    .logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
   </style>
 </head>
 <body>
 
   <!-- ═══ NAVIGATION ═══════════════════════════════════ -->
   <nav id="navbar">
-    <div class="nav-logo" style="flex-direction: row; align-items: center; gap: 10px;">
-  <img src="logo.png" alt="Logo">
-  <div>
-    <div class="nav-logo-name">NoteCraft</div>
-    <div class="nav-logo-tag">Industries · est. 2005</div>
-  </div>
+    <div class="nav-logo">
+  <img src="logo.png" alt="Logo" class="logo">
+  <span class="nav-logo-tag">Industries · est. 2005</span>
 </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
