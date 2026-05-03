@@ -1215,7 +1215,17 @@ Phone: ${phoneInput}
 Product: ${product}
 Message: ${message}`;
 
-  let url = "https://wa.me/" + yourNumber + "?text=" + encodeURIComponent(text);
+  let encodedText = encodeURIComponent(text);
+
+  let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  let url;
+
+  if (isMobile) {
+    url = "https://wa.me/" + yourNumber + "?text=" + encodedText;
+  } else {
+    url = "https://web.whatsapp.com/send?phone=" + yourNumber + "&text=" + encodedText;
+  }
 
   window.open(url, "_blank");
 }
