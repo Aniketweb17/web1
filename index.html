@@ -1018,9 +1018,7 @@
         </div>
       </div>
 
-      <form class="contact-form reveal"
-            action="https://formspree.io/f/maqvqpvd"
-            method="POST">
+      <<form class="contact-form reveal" onsubmit="sendToWhatsApp(event)">>
         <div class="form-row">
           <div class="form-field">
             <label>Your Name</label>
@@ -1028,7 +1026,7 @@
           </div>
           <div class="form-field">
             <label>Company / Organisation</label>
-            <input type="text" placeholder="ABC Enterprises">
+            <input type="text" name="company" placeholder="ABC Enterprises">
           </div>
         </div>
         <div class="form-row">
@@ -1038,7 +1036,7 @@
           </div>
           <div class="form-field">
             <label>Phone Number</label>
-            <input type="tel" placeholder="+91 98000 00000">
+            <input type="tel" name="phone" placeholder="+91 98000 00000">
           </div>
         </div>
         <div class="form-field">
@@ -1194,5 +1192,32 @@
       }, 20);
     }
   </script>
+  <script>
+function sendToWhatsApp(event) {
+  event.preventDefault();
+
+  let name = document.querySelector('[name="name"]').value;
+  let company = document.querySelector('[name="company"]').value;
+  let email = document.querySelector('[name="email"]').value;
+  let phoneInput = document.querySelector('[name="phone"]').value;
+  let product = document.querySelector('[name="product"]').value;
+  let message = document.querySelector('[name="message"]').value;
+
+  let yourNumber = "918237896811"; // 🔴 REPLACE with your WhatsApp number
+
+  let text =
+    "New Enquiry:%0A%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Company: " + encodeURIComponent(company) + "%0A" +
+    "Email: " + encodeURIComponent(email) + "%0A" +
+    "Phone: " + encodeURIComponent(phoneInput) + "%0A" +
+    "Product: " + encodeURIComponent(product) + "%0A" +
+    "Message: " + encodeURIComponent(message);
+
+  let url = "https://wa.me/" + yourNumber + "?text=" + text;
+
+  window.open(url, "_blank");
+}
+</script>
 </body>
 </html>
