@@ -1018,7 +1018,7 @@
         </div>
       </div>
 
-      <<form class="contact-form reveal" onsubmit="sendToWhatsApp(event)">>
+      <form class="contact-form reveal" onsubmit="sendToWhatsApp(event)">
         <div class="form-row">
           <div class="form-field">
             <label>Your Name</label>
@@ -1041,7 +1041,7 @@
         </div>
         <div class="form-field">
           <label>Product Interest</label>
-          <select>
+          <<select name="product">>
             <option value="">— Select a product category —</option>
             <option>Scholar Series (Academic)</option>
             <option>Executive Folio (Corporate)</option>
@@ -1206,15 +1206,16 @@ function sendToWhatsApp(event) {
   let yourNumber = "918237896811"; // 🔴 REPLACE with your WhatsApp number
 
   let text =
-    "New Enquiry:%0A%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "Company: " + encodeURIComponent(company) + "%0A" +
-    "Email: " + encodeURIComponent(email) + "%0A" +
-    "Phone: " + encodeURIComponent(phoneInput) + "%0A" +
-    "Product: " + encodeURIComponent(product) + "%0A" +
-    "Message: " + encodeURIComponent(message);
+`New Enquiry:
 
-  let url = "https://wa.me/" + yourNumber + "?text=" + text;
+Name: ${name}
+Company: ${company}
+Email: ${email}
+Phone: ${phoneInput}
+Product: ${product}
+Message: ${message}`;
+
+let url = "https://wa.me/" + yourNumber + "?text=" + encodeURIComponent(text);
 
   window.open(url, "_blank");
 }
