@@ -1041,7 +1041,7 @@
         </div>
         <div class="form-field">
           <label>Product Interest</label>
-          <<select name="product">>
+          <select name="product">
             <option value="">— Select a product category —</option>
             <option>Scholar Series (Academic)</option>
             <option>Executive Folio (Corporate)</option>
@@ -1196,14 +1196,14 @@
 function sendToWhatsApp(event) {
   event.preventDefault();
 
-  let name = document.querySelector('[name="name"]').value;
-  let company = document.querySelector('[name="company"]').value;
-  let email = document.querySelector('[name="email"]').value;
-  let phoneInput = document.querySelector('[name="phone"]').value;
-  let product = document.querySelector('[name="product"]').value;
-  let message = document.querySelector('[name="message"]').value;
+  let name = document.querySelector('[name="name"]').value || "";
+  let company = document.querySelector('[name="company"]').value || "";
+  let email = document.querySelector('[name="email"]').value || "";
+  let phoneInput = document.querySelector('[name="phone"]').value || "";
+  let product = document.querySelector('[name="product"]').value || "";
+  let message = document.querySelector('[name="message"]').value || "";
 
-  let yourNumber = "918237896811"; // 🔴 REPLACE with your WhatsApp number
+  let yourNumber = "918237896811";
 
   let text =
 `New Enquiry:
@@ -1215,7 +1215,7 @@ Phone: ${phoneInput}
 Product: ${product}
 Message: ${message}`;
 
-let url = "https://wa.me/" + yourNumber + "?text=" + encodeURIComponent(text);
+  let url = "https://wa.me/" + yourNumber + "?text=" + encodeURIComponent(text);
 
   window.open(url, "_blank");
 }
