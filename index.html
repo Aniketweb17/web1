@@ -1018,11 +1018,13 @@
         </div>
       </div>
 
-      <div class="contact-form reveal">
+      <form class="contact-form reveal"
+            action="https://formspree.io/f/maqvqpvd"
+            method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>Your Name</label>
-            <input type="text" placeholder="Rohan Desai">
+            <input type="text" name="name" placeholder="Rohan Desai">
           </div>
           <div class="form-field">
             <label>Company / Organisation</label>
@@ -1032,7 +1034,7 @@
         <div class="form-row">
           <div class="form-field">
             <label>Email Address</label>
-            <input type="email" placeholder="you@company.com">
+            <input type="email" name="email" placeholder="you@company.com">
           </div>
           <div class="form-field">
             <label>Phone Number</label>
@@ -1054,12 +1056,12 @@
         </div>
         <div class="form-field">
           <label>Estimated Quantity & Requirements</label>
-          <textarea placeholder="Tell us about your order — quantity, any custom branding needs, delivery timeline, etc."></textarea>
+          <textarea name="message" placeholder="Tell us about your order"></textarea>
         </div>
         <div class="form-submit">
-          <button class="btn-primary" onclick="handleSubmit()">Send Enquiry →</button>
+          <button type="submit" class="btn-primary">Send Enquiry →</button>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 
